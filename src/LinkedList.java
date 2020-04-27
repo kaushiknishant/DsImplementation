@@ -52,7 +52,33 @@ public class LinkedList {
             current = current.next;
         }
     }
+    public void deleteFront(){
+        if(head == null)
+        {
+            System.out.println("No node to delete");
+            return;
+        }
+        Node temp = head;
+        head = head.next;
+        temp = null;
+    }
+    public void deleteAfter(int key )
+    {
+        Node temp = head, prev = null;
 
+        if(temp != null && temp.data == key){
+            head = temp.next;
+            return;
+        }
+        while(temp != null && temp.data != key ){
+            prev = temp;
+            temp = temp.next;
+        }
+        if(temp == null) return ;
+
+        prev.next = temp.next;
+        temp = null;
+    }
     public static void main(String[] args) {
         LinkedList list = new LinkedList();
         list.append(6);
@@ -61,6 +87,10 @@ public class LinkedList {
         list.append(4);
         list.insertAfter(list.head,8);
         System.out.println("print");
+        list.printList();
+        System.out.println("before");
+//        list.deleteFront();
+        list.deleteAfter(7);
         list.printList();
     }
 
