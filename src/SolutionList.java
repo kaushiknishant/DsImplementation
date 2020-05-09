@@ -68,7 +68,6 @@ public class SolutionList {
         SinglyLinkedListNode new_node = new SinglyLinkedListNode(data);
 
         if(current == null) return current;
-        
         if(position == 0){
             new_node.next = head;
             return new_node;
